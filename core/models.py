@@ -5,6 +5,8 @@ from django.conf import settings
 from django.db import models
 
 class User(AbstractUser):
+    birthday = models.DateField(null=True, blank=True)
+
     class Meta:
         db_table = 'auth_user'
 
