@@ -4,11 +4,9 @@ from django.contrib.contenttypes.models import ContentType
 from django.conf import settings
 from django.db import models
 
-import sys
-if sys.argv[1] != 'migrate':
-    class User(AbstractUser):
-        class Meta:
-            db_table = 'auth_user'
+class User(AbstractUser):
+    class Meta:
+        db_table = 'auth_user'
 
 class Book(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
